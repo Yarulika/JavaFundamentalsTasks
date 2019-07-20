@@ -5,10 +5,10 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int noLines = input.nextInt();
+        int countLines = input.nextInt();
         input.nextLine();
-        int[] arrResults = new int[noLines];
-        for (int i = 0; i < noLines; i++) {
+        int[] arrResults = new int[countLines];
+        for (int i = 0; i < countLines; i++) {
             String strFromInput = input.nextLine();
             arrResults[i] = countNumbersWithSameDigits(strFromInput);
         }
