@@ -1,35 +1,34 @@
 import java.util.Scanner;
 
-// The task is to count numbers that have all the digits the same from the given range [a, b].
+// The task is to count numbers that have all the digits the same (like 2222) from the given range [a, b].
 public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int countLines = input.nextInt();
+        int countRangers = input.nextInt();
         input.nextLine();
-        int[] arrResults = new int[countLines];
-        for (int i = 0; i < countLines; i++) {
-            String strFromInput = input.nextLine();
-            arrResults[i] = countNumbersWithSameDigits(strFromInput);
+        int[] resultNumbersSet = new int[countRangers];
+        for (int i = 0; i < countRangers; i++) {
+            String inputRange = input.nextLine();
+            resultNumbersSet[i] = countNumbersWithSameDigits(inputRange);
         }
-        for (int output : arrResults) {
+        for (int output : resultNumbersSet) {
             System.out.println(output);
         }
     }
 
     static int countNumbersWithSameDigits(String inputRange) {
-        String[] arrRange = inputRange.split(" ");
-        int intStart = Integer.parseInt(arrRange[0]);
-        int intEnd = Integer.parseInt(arrRange[1]);
-        int counter = 0;
-        for (int i = intStart; i <= intEnd; i++) {
-            counter += ifNumberWithSameDigits(i);
+        String[] range = inputRange.split(" ");
+        int rangeStart = Integer.parseInt(range[0]);
+        int rangeEnd = Integer.parseInt(range[1]);
+        int numbersCounter = 0;
+        for (int i = rangeStart; i <= rangeEnd; i++) {
+            numbersCounter += checkNumberWithSameDigits(i);
         }
-        //System.out.println("counter= "+ counter);
-        return counter;
+        return numbersCounter;
     }
 
-    static int ifNumberWithSameDigits(int num) {  //returns 1 if number consists of the same digits
+    static int checkNumberWithSameDigits(int num) {  //returns 1 if number consists of the same digits
         String strNum = Integer.toString(num);
         if (strNum.length() == 1) {
             return 1; //if number is out of just one digit
